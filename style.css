@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.ball{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 250px;
+    background:linear-gradient(to top,pink,deeppink);
+    border-radius: 50%;
+    z-index: 6;
+    animation: ballPos 3s linear infinite;
+
+}
+
+.ball::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color:white;
+    z-index: 5;
+    top: 50px;
+    left: 50px;
+    transform: rotate(45deg);
+    filter: blur(2px);
+    animation: ballBefore 3s linear infinite;
+
+}
+
+.ball::after{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color:white;
+    z-index: 5;
+    top: 100px;
+    left: 100px;
+    border-radius: 10px;
+    filter: blur(2px);
+}
+
+.floor{
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    bottom: 0;
+    background:linear-gradient(to top,skyblue,dodgerblue);
+    box-shadow: inset 0 10px 10px rgba(0,0,0,0.6);
+}
+
+.floor::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    background-color: rgba(0,0,0,0.4);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50px;
+    filter: blur(20px);
+    animation: floorPos 3s linear infinite;
+}
+
+.row{
+    position: absolute;
+    width: 550px;
+    height: 200px;
+    background-color: #222;
+    transform: rotate(50deg);
+    bottom: 20px;
+    right: -380px;
+}
+
+
+@keyframes ballPos {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(130px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes floorPos {
+    0%{
+        width:50px;
+    }
+    50%{
+        width: 120px;
+    }
+    100%{
+        width: 50px;
+    }
+}
+
+@keyframes ballBefore {
+    0%{
+        top:50px;
+    }
+    50%{
+        top: 60px;
+    }
+    100%{
+        top: 50px;
+    }
+}
+
+
